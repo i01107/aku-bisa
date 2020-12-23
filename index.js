@@ -71,7 +71,7 @@ var tipeBensin = ''; // isi value sesuai keinginanmu
 var uang = 0; // isi value sesuai keinginanmu
 var liter;
 
-if(!tipeBensin && !uang){
+if(!tipeBensin || !uang){
     console.log('Tidak ada tipe bensin dan uang');
 }else{
     if(tipeBensin === 'solar'){
