@@ -76,14 +76,13 @@ var uang = 30000; // isi value sesuai keinginanmu
 
 
 if (!tipeBensin && !uang){
-    console.log('Tidak ada tipe bensin dan uang')
-    
+        console.log('Tidak ada tipe bensin dan uang')
 }
 
 if (tipeBensin === 'solar'){
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${uang / 50000} Lt` )   
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak (${(uang / 5000).toFixed(1)}) Lt` )   
 }else if (tipeBensin === 'premium'){
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${uang / 7500} Lt` )
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak (${(uang / 7500).toFixed(1)}) Lt` )
 }else if (tipeBensin === 'pertamax'){
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${uang / 10000} Lt` )
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak (${(uang / 10000).toFixed(1)}) Lt` )
 }
