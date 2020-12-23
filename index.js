@@ -67,17 +67,21 @@ console.log(tarif);
  * Hint: boleh menggunakan built-in function toFixed().
  */
 
-var tipeBensin = 'pertamax'; // isi value sesuai keinginanmu
-var uang = 30000; // isi value sesuai keinginanmu
+var tipeBensin = ''; // isi value sesuai keinginanmu
+var uang = 0; // isi value sesuai keinginanmu
 var liter;
 
-if(tipeBensin === 'solar'){
-    liter = uang / 5000;
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`)
-}else if(tipeBensin === 'premium'){
-    liter = uang / 7500;
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`);
-}else if(tipeBensin === 'pertamax'){
-    liter = uang / 10000
-    console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`);
+if(!tipeBensin && !uang){
+    console.log('Tidak ada tipe bensin dan uang');
+}else{
+    if(tipeBensin === 'solar'){
+        liter = uang / 5000;
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`)
+    }else if(tipeBensin === 'premium'){
+        liter = uang / 7500;
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`);
+    }else if(tipeBensin === 'pertamax'){
+        liter = uang / 10000
+        console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${liter} lt`);
+    }
 }
