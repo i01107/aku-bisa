@@ -10,30 +10,34 @@
 //  * Tampilkan tarif harga sesuai umur dan tinggi seorang anak!
 //  */
 
-let umur = 6
+let umur = 8
 let tarif = 0
 let tinggiAnak = 121
 
 if (umur <= 1) {
     console.log('Dilarang masuk')
-
-} else if (umur <= 3) {
-    tarif = 30000
-    if (tinggiAnak > 70) {
-        tarif += 10000
-    }
-} else if (umur <= 7) {
-    tarif = 40000
-    if (tinggiAnak > 120) {
-        tarif += 15000
-    }
-} else if (umur <= 10) {
-    tarif = 50000
-    if (tinggiAnak > 150) {
-        tarif += 20000
-    }
 } else {
-    tarif = 80000
-}
+    
+    if (umur <= 3) {
+        tarif = 30000
+        if (tinggiAnak > 70) {
+            tarif += 10000
+        }
+    
+    } else if (umur <= 7) {
+        tarif = 40000
+        if (tinggiAnak > 120) {
+            tarif += 15000
+        }
+    
+    } else if (umur <= 10) {
+        tarif = 50000
+        if (tinggiAnak > 150) {
+            tarif += 20000
+        }
+    } else {
+        tarif = 80000
+    }
 
-console.log (`tarif harga: ${tarif} umur: ${umur} tinggi: ${tinggiAnak}`)
+    console.log (`tarif harga: ${tarif} umur: ${umur} tinggi: ${tinggiAnak}`)
+}
