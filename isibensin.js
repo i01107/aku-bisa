@@ -55,4 +55,3 @@ if (!tipeBensin.length || !uang) {
 
     console.log(`Mobil anda telah terisi ${tipeBensin} sebanyak ${totalBensin} lt`)
 }
-
