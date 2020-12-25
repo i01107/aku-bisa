@@ -29,6 +29,21 @@ xoxoxoxox
 // for (let j = 1; j <= num; j++) {
 //   console.log('x')
 // }
+let batas = (num * 2) - 1
+
+// 2. selesaikan (x sebanyak batas ke kanan):
+// FORMULA
+let temp = ''
+for (let i = 1; i <= batas; i++) {
+  temp += 'x'
+}
+console.log(temp)
+// ./FORMULA
+
+// 3. selesaikan (x sebanyak num ke bawah):
+for (let j = 1; j <= num; j++) {
+  console.log('x')
+}
 
 // 4. gabungkan 2 & 3
 /*
