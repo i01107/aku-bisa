@@ -78,13 +78,77 @@ let arr2 = [
 - copy paste hasil no 4, SESUAIKAN dengan cara mencari baris yang ada console.log nya di dalem nested
 - ganti console.log nya dengan penjumlahan nya
 */
-let total = 0
+// let total = 0
 
-for (let j = 0; j < arr2.length; j++) {
+// for (let j = 0; j < arr2.length; j++) {
+//   // FORMULA
+//   for (let i = 0; i < arr2[j].length; i++) {
+//     total += arr2[j][i]
+//   }
+//   // ./FORMULA
+// }
+
+// console.log(total)
+
+
+
+
+// SOAL 1 :
+let str = '395628'
+
+/*
+333
+999999999
+55555
+666666
+22
+88888888
+*/
+
+// 1. selesaikan untuk menampilkan seluruh isi str
+// for (let i = 0; i < str.length; i++) {
+//   console.log(str[i])
+// }
+
+// # buat proses untuk mengganti console.log
+
+// 2. selesaikan untuk menampilkan angka sejumlah angka itu sendiri ke bawah
+// let angka = Number(str[0])
+// for (let j = 0; j < angka; j++) {
+//   console.log(str[0])
+// }
+
+// 3. selesaikan untuk menampilkan angka tersebut ke KANAN
+// // FORMULA
+// let angka = Number(str[0])
+// let temp = ''
+// for (let j = 0; j < angka; j++) {
+//   temp += str[0]
+// }
+// console.log(temp)
+// // ./FORMULA
+
+// 4. ganti console.log di langkah 1 dengan FORMULA
+// for (let i = 0; i < str.length; i++) {
+//   // FORMULA
+//   let angka = Number(str[0])
+//   let temp = ''
+//   for (let j = 0; j < angka; j++) {
+//     temp += str[0]
+//   }
+//   console.log(temp)
+//   // ./FORMULA
+// }
+
+// 5. buat penyesuaian
+for (let i = 0; i < str.length; i++) {
   // FORMULA
-  for (let i = 0; i < arr2[j].length; i++) {
-    total += arr2[j][i]
+  let angka = Number(str[i])
+  let temp = ''
+  for (let j = 0; j < angka; j++) {
+    temp += str[i]
   }
+  console.log(temp)
   // ./FORMULA
 }
 
@@ -280,3 +344,4 @@ console.log(total)
 console.log(totalGenap)
 console.log(totalGanjil)
 console.log(totalGenap1)
+}
