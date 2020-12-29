@@ -155,22 +155,28 @@ function countProfit(shoppers) {
       'leftOver': listBarang[a][2],
       'totalProfit': 0
     }
+
+    for(let b = 0; b < shoppers.length; b++) {
+      // console.log(shoppers[b])
+      // console.log(b, 'ini indeks b')
+      //push ke shoppers, kalo produk sama dengan obj.prod dan amount<=leftover
+      if(shoppers[b].product === object.product && shoppers[b].amount <= object.leftOver) {
+        object.shoppers.push(shoppers[b].name)
+        //update leftOver
+        object.leftOver = (object.leftOver - shoppers[b].amount)
+      }
+      //isi total profit, kalo arr shoppers tidak kosong
+      //buat penampung untuk total item per produk
+      //totalProfit = total item * harga barang
+      if(object.shoppers.length !== 0) {
+        let totalAmount = 0
+        totalAmount += shoppers[b].amount
+        // console.log(totalAmount)
+        object.totalProfit = (totalAmount * listBarang[a][1])
+      }
+    }
     // console.log(object)
     hasil.push(object)
-  }
-
-  for(let b = 0; b < shoppers.length; b++) {
-    console.log(shoppers[b])
-    // console.log(b, 'ini indeks b')
-    //push ke shoppers, kalo produk sama dengan obj.prod dan amount<=leftover
-    if(shoppers[b].product === object.product && shoppers[b].amount < object.leftOver) {
-      object.shoppers.push(shoppers[b].name)
-      //update leftOver
-      object.leftOver = (object.leftOver - shoppers[b].amount)
-    }
-    //hitung total profit, hitung total amount nya dulu
-    //total amount = shoppers[b].amount
-    //totalprofit = listBarang[a][1] - total amount
   }
   return hasil
 }
