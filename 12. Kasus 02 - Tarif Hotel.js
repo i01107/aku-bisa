@@ -21,6 +21,25 @@ Hitung total billing dari input penyewaan kamar di bawah ini
 
 function billing(rekap_tamu) {
   // your code here
+  // memanfaatkan object untuk keperluan perhitungan
+  let tarif = {
+    'Suites': [5000000, 500000],
+    'Deluxe': [3000000, 300000],
+    'Superior': [1000000, 100000],
+    'Economi': [500000, 50000]
+  }
+
+  let key = rekap_tamu.kamar
+  let harga_kamar = tarif[key][0] * rekap_tamu.durasi
+  let overcharge = 0
+
+  if (rekap_tamu.tamu > 2) {
+    let kelebihan_tamu = rekap_tamu.tamu - 2
+    overcharge = kelebihan_tamu * rekap_tamu.durasi * tarif[key][1]
+  }
+  let total_billing = harga_kamar + overcharge
+
+  return `Anda menginap di kamar dengan tipe ${rekap_tamu.kamar} selama ${rekap_tamu.durasi} malam, dengan jumlah tamu sebanyak ${rekap_tamu.tamu}. Total billing Anda adalah ${total_billing}`
 }
 
 let input = {
@@ -30,7 +49,7 @@ let input = {
 }
 
 console.log(billing(input))
-// Anda menginap di kamar dengan tipe Superior selama 4 malam, dengan jumlah tamu sebanyak 5. Total billing Anda adalah 26000000
+// Anda menginap di kamar dengan tipe Superior selama 4 malam, dengan jumlah tamu sebanyak 5. Total billing Anda adalah 5200000
 
 input = {
   kamar: 'Deluxe',
