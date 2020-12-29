@@ -84,7 +84,9 @@ for (let i = 0; i < arr.length; i++) {
 console.log(obj)
 
 /*
-Buatlah fungsi dengan nama kompilasi, dengan parameter input array 2 dimensi seperti pada contoh. Fungsi bertugas untuk membuat rekap data dalam bentuk object, dimana semua data akan dikelompokkan berdasarkan jurusan. Bentukan output dapat dilihat pada contoh
+Buatlah fungsi dengan nama kompilasi, dengan parameter input array 2 dimensi seperti pada contoh. 
+Fungsi bertugas untuk membuat rekap data dalam bentuk object, 
+dimana semua data akan dikelompokkan berdasarkan jurusan. Bentukan output dapat dilihat pada contoh
 Contoh :
 [
   ['Biologi', 'Jonas'],
@@ -101,6 +103,34 @@ output :
   Akuntansi: ['Hannah']
 }
 */
+let arr_input = [
+  ['Biologi', 'Jonas'],
+  ['Fisika', 'Ulrich'],
+  ['Akuntansi', 'Hannah'],
+  ['Biologi', 'Barbosz'],
+  ['Fisika', 'Claudia'],
+  ['Biologi', 'Edmund'],
+]
+
+function kompilasi(arr) {
+  let hasil = {}
+
+  for(let b = 0; b < arr.length; b++) {
+    // console.log(arr[b])
+    let key = arr[b][0]
+    let value = arr[b][1]
+
+    if(hasil[key] === undefined) {
+      hasil[key] = []
+    }
+
+    hasil[key].push(value)
+  }
+
+  return hasil 
+}
+
+console.log(kompilasi(arr_input))
 
 
 // # TOKO X
@@ -111,6 +141,38 @@ function countProfit(shoppers) {
     ['Sweater Uniklooh', 175000, 1]
   ]
   // you can only write your code here!
+  let hasil = []
+
+  //UNIQUE CASE
+  if(shoppers.length === 0) {
+    return hasil
+  } 
+  //buat object, isi dengan informasi yg sudah diketahui
+  for(let a = 0; a < listBarang.length; a++) {
+    object = {
+      'product': listBarang[a][0],
+      'shoppers': [],
+      'leftOver': listBarang[a][2],
+      'totalProfit': 0
+    }
+    // console.log(object)
+    hasil.push(object)
+  }
+
+  for(let b = 0; b < shoppers.length; b++) {
+    console.log(shoppers[b])
+    // console.log(b, 'ini indeks b')
+    //push ke shoppers, kalo produk sama dengan obj.prod dan amount<=leftover
+    if(shoppers[b].product === object.product && shoppers[b].amount < object.leftOver) {
+      object.shoppers.push(shoppers[b].name)
+      //update leftOver
+      object.leftOver = (object.leftOver - shoppers[b].amount)
+    }
+    //hitung total profit, hitung total amount nya dulu
+    //total amount = shoppers[b].amount
+    //totalprofit = listBarang[a][1] - total amount
+  }
+  return hasil
 }
 
 // TEST CASES

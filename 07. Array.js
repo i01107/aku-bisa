@@ -344,4 +344,3 @@ console.log(total)
 console.log(totalGenap)
 console.log(totalGanjil)
 console.log(totalGenap1)
-}
