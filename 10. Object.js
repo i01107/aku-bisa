@@ -123,15 +123,11 @@ function kompilasi(arr) {
     if(hasil[key] === undefined) {
       hasil[key] = []
     }
-
     hasil[key].push(value)
   }
-
   return hasil 
 }
-
 console.log(kompilasi(arr_input))
-
 
 // # TOKO X
 function countProfit(shoppers) {
@@ -147,7 +143,7 @@ function countProfit(shoppers) {
   if(shoppers.length === 0) {
     return hasil
   } 
-  //buat object, isi dengan informasi yg sudah diketahui
+  //buat object sesuai output soal, isi dengan informasi yg sudah diketahui
   for(let a = 0; a < listBarang.length; a++) {
     object = {
       'product': listBarang[a][0],
