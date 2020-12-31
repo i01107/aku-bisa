@@ -160,15 +160,8 @@ function countProfit(shoppers) {
         object.shoppers.push(shoppers[b].name)
         //update leftOver
         object.leftOver = (object.leftOver - shoppers[b].amount)
-      }
-      //isi total profit, kalo arr shoppers tidak kosong
-      //buat penampung untuk total item per produk
-      //totalProfit = total item * harga barang
-      if(object.shoppers.length !== 0) {
-        let totalAmount = 0
-        totalAmount += shoppers[b].amount
-        // console.log(totalAmount)
-        object.totalProfit = (totalAmount * listBarang[a][1])
+        //totalProfit = total amount * harga barang
+        object.totalProfit += (shoppers[b].amount * listBarang[a][1])
       }
     }
     // console.log(object)
