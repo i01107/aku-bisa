@@ -18,6 +18,8 @@ output :
 Tuan Postoro mendapat 900 dollar, harus membayar pajak sebesar 40 dollar, dan ada 1 komplek yang kosong
 */
 
+
+
 /*
 FACTS
 - Sang anak buah memberikan laporan berupa array, dan akunting Tuan Postoro akan mengkompillasi laporan nya
@@ -64,10 +66,54 @@ Untuk memisahkan nama hero dan tipenya, implementasikan function splitting yang 
 
 function splitting(str) {
   //your code here
+  let hasil = []
+  let temp = ''
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ',') {
+      temp += str[i]
+    }
+    if (str[i] === ',' || i === str.length - 1) {
+      hasil.push(temp)
+      temp = ''
+    }
+  }
+
+
+  return hasil
 }
 
 function meleeRangedGrouping (str) {
   //your code here
+  if (str === ''){
+    return []
+  }
+  let hasil = []
+  let split = splitting(str)
+  
+  for (let i = 0; i < split.length; i++) {
+    let output = []
+    let temp = ''
+    let str1 = split[i]
+    for (let j = 0; j < str1.length; j++) {
+      if (str1[j] === '-') {
+        output.push(temp)
+        temp = ''
+      }
+      temp += str1[j]
+    }
+    output.push(temp)
+    hasil.push(output)
+  }
+  let akhir = [[], []]
+  for (let i = 0; i < hasil.length; i++) {
+    if (hasil[i][1] === '-Ranged') {
+      akhir[0].push(hasil[i][0])
+    } else {
+      akhir[1].push(hasil[i][0])
+    }
+  }
+
+  return akhir
 }
 
 // TEST CASE
