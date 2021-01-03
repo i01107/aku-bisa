@@ -51,6 +51,36 @@ PROSES
 OUTPUT
 "Tuan Postoro mendapat [pendapatan] dollar, harus membayar pajak sebesar [pengeluaran] dollar, dan ada [komplek] komplek yang kosong"
 */
+let input = [1, 0, -1]
+let pendapatan = 0
+let pengeluaran = 0
+let komplek = 0
+let output = ''
+
+for(let x = 0; x < input.length; x++) {
+  // console.log(input[x])
+
+  if(input[x] === 0) {
+    komplek++
+    // console.log(komplek)
+    // console.log('===')
+  }
+
+  if(input[x] !== 0 && input[x] > 0) {
+    pendapatan += input[x] * 100
+    // console.log(pendapatan)
+    // console.log('===')
+  }
+
+  if(input[x] !== 0 && input[x] < 0) {
+    pengeluaran += (input[x] * 20) * -1
+    // console.log(pengeluaran)
+    // console.log('===')
+  }
+
+}
+output = `Tuan Postoro mendapat ${pendapatan} dollar, harus membayar pajak sebesar ${pengeluaran} dollar, dan ada ${komplek} komplek yang kosong`
+console.log(output)
 
 // # MELEE RANGED
 
@@ -61,13 +91,59 @@ meleeRangedGrouping yang menerima 1 parameter berupa string. Implementasikan mel
 
 Untuk memisahkan nama hero dan tipenya, implementasikan function splitting yang telah diberikan dimana hasil dari function tersebut adalah array satu dimensi. Jika input yang diberikan adalah 'QOP-Ranged,Anti Mage-Melee' maka output yang diharapkan adalah ['QOP-Ranged', 'Anti Mage-Melee']
 */
-
+let str = ('Razor-Ranged,Invoker-Ranged,Meepo-Melee,Axe-Melee,Sniper-Ranged')
 function splitting(str) {
   //your code here
+  let hasil = []
+
+  let temp = ''
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] !== ',') {
+      temp += str[i]
+    }
+
+    if(str[i] === ',' || i === str.length - 1) {
+      hasil.push(temp)
+      temp = ''
+    }
+  }
+
+  return hasil
 }
+console.log(splitting(str))
 
 function meleeRangedGrouping (str) {
   //your code here
+  let hasil = []
+  let split = splitting(str)
+  let melee = []
+  let ranged = []
+  //unique case
+  if(str.length === 0) {
+    return hasil
+  }
+  //cetak kebawah
+  for(let x = 0; x < split.length; x++) {
+    // console.log(split[x])
+    //cetak ke kanan
+    let temp = ''
+    for (let y = 0; y < split[x].length; y++) {
+      // console.log(split[x][y])
+      if(split[x][y] !== '-'){//tampilkan yg bukan (-)
+        temp += split[x][y]
+      } else if(split[x][y] === '-') {//jika ketemu (-)
+        if(split[x][y+1] === 'R') {//cek indeks y setelahnya huruf apa, jika R,push ke ranged
+          ranged.push(temp)
+        } else if (split[x][y+1] === 'M'){// jika M, push ke melee
+          melee.push(temp)
+        }
+      }
+    }
+    // console.log(temp)
+  }
+  
+  hasil.push(ranged, melee)// gabungin arr ranged , arr melee ke arr hasil
+  return hasil
 }
 
 // TEST CASE
